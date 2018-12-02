@@ -21,7 +21,7 @@ router.post("/", async (ctx, next) => {
     try {
         let docs = await employee.save()
         console.log("=>", docs);
-        ctx.redirect("/list");
+        ctx.redirect("/employee/list");
     } catch (err) {
         if (err.name == "ValidationError") {
             handleError(ctx, err)
@@ -36,6 +36,15 @@ router.post("/", async (ctx, next) => {
     await ctx.render("employee/employeeInsertOrEdit", {
         viewTitle: "Insert Employee Error",
         employee: ctx.request.body
+    })
+})
+
+router.get("/list", async (ctx, next) => {
+    let query = Employee.find({});
+    let result = await query.exec();
+    console.log(result);
+    await ctx.render("employee/employeeList.html", {
+        data: result
     })
 })
 

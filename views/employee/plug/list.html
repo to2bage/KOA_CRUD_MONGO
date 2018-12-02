@@ -1,0 +1,22 @@
+<h3><a class="btn btn-secondary" href="/employee"><i class="fa fa-plus"></i>Create New</a>Employee List</h3>
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Full Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">City</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{each data}}
+        <tr>
+            <td>{{$value.fullName}}</td>
+            <td>{{$value.email}}</td>
+            <td>{{$value.mobile}}</td>
+            <td>{{$value.city}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
