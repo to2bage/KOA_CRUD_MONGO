@@ -42,7 +42,7 @@ router.post("/", async (ctx, next) => {
 router.get("/list", async (ctx, next) => {
     let query = Employee.find({});
     let result = await query.exec();
-    console.log(result);
+    // console.log(result);
     await ctx.render("employee/employeeList.html", {
         data: result
     })
